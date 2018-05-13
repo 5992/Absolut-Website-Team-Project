@@ -22,7 +22,7 @@ else{
         <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand">
-            Website Name
+            Absolut.
           </a>
           <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
             <span class="icon-bar"></span>
@@ -34,7 +34,7 @@ else{
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="index.php">Home</a></li>
             <li><a href="about.php">About</a></li>
-            <li><a href="news.php">News</a></li>
+            <li><a href="product.php">Product</a></li>
           </ul>
         </div>
         </div>
