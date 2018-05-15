@@ -3,7 +3,17 @@ include("includes/database.php");
 //check if connection is successful
 if($connection){
   //echo "success";
-  $query = "SELECT name,price,description FROM products";
+  $query = "SELECT 
+    products.id AS id,
+    products.name AS name,
+    products.price AS price,
+    products.description AS description,
+    images.image_file_name AS image
+    FROM products 
+    INNER JOIN products_images 
+    ON products.id = products_images.product_id 
+    INNER JOIN images
+    ON products_images.image_id = images.image_id";
   //run the query
   $statement = $connection -> prepare($query);
   $statement -> execute();
@@ -18,27 +28,9 @@ else{
 <html>
     <?php include("includes/head.php"); ?>
     <body>
-      <nav class="navbar navbar-inverse navbar-static-top">
-        <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand">
-            Absolut.
-          </a>
-          <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="collapse navbar-collapse" id="main-nav">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="about.php">About</a></li>
-            <li><a href="product.php">Product</a></li>
-          </ul>
-        </div>
-        </div>
-      </nav>
+      <?php include("includes/navbar.php"); ?>
+      
+      
       <div class="container">
         <?php
         if($result -> num_rows > 0){
@@ -47,7 +39,7 @@ else{
             $name = $row["name"];
             $price = $row["price"];
             $description = $row["description"];
-            
+            $image = $row["image"];
             $counter++;
             if($counter == 1){
               //create boostrap row
@@ -55,6 +47,7 @@ else{
             }
             echo "<div class=\"col-md-3 col-sm-6 \">
             <h3>$name</h3>
+            <img class=\"product-thumbnail img-fluid\" src=\"images/products/$image\">
             <h4 class=\"price\">$price</h4>
             <p>$description</p>
             </div>";
