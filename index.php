@@ -26,9 +26,14 @@ else{
 ?>
 <!doctype html>
 <html>
+  <head>
     <?php include("includes/head.php"); ?>
+
+  </head>
     <body>
       <?php include("includes/navbar.php"); ?>
+      <?php include("includes/banner.php"); ?>
+      <p></p>
       <div class="container">
         <?php
         if($result -> num_rows > 0){

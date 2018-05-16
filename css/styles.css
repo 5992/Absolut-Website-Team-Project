@@ -1,0 +1,13 @@
+.price::before{
+  content:"$";
+  
+}
+
+
+/* Banners - Make the image fully responsive */
+  .carousel-inner img {
+      margin-top: 50px;
+      width: 100%;
+      min-height:200px;
+      height: auto;
+  }
