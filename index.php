@@ -29,8 +29,6 @@ else{
     <?php include("includes/head.php"); ?>
     <body>
       <?php include("includes/navbar.php"); ?>
-      
-      
       <div class="container">
         <?php
         if($result -> num_rows > 0){
