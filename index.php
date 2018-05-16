@@ -33,8 +33,13 @@ else{
     <body>
       <?php include("includes/navbar.php"); ?>
       <?php include("includes/banner.php"); ?>
-      <p></p>
+      
+      
       <div class="container">
+        <!-- Project Section -->
+      <div class="w3-container w3-padding-32" id="projects">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Products</h3>
+      </div>
         <?php
         if($result -> num_rows > 0){
           $counter = 0;
@@ -49,19 +54,25 @@ else{
               echo "<div class=\"row\">";
             }
             echo "<div class=\"col-md-3 col-sm-6 \">
-            <h3>$name</h3>
-            <img class=\"product-thumbnail img-fluid\" src=\"images/products/$image\">
-            <h4 class=\"price\">$price</h4>
-            <p>$description</p>
+            <div class=\"card\">
+            
+            <img class=\"product-thumbnail img-fluid\" src=\"images/products/$image\" style=\"width:100%\">
+            <h4>$name</h4>
+            <p><h4 class=\"price\">$price</h4></p>
+            
+            <p style=\"margin:0;\"><button id=\"contactbutton\">View Me</button></p>
+            </div> 
             </div>";
+
             if($counter == 4){
               echo "</div>";
               $counter = 0;
             }
-            // echo "<p>Product Name is $name and price is $ $price</p>";
+            echo "<p></p>";
           }
         }
         ?>
       </div>
     </body>
 </html>
+
