@@ -1,13 +1,13 @@
 /* Banners - Make the image fully responsive */
-  .carousel-inner img {
-      margin-top: 50px;
-      width: 100%;
-      min-height:200px;
-      height: auto;
-  }
+.carousel-inner img {
+    margin-top: 50px;
+    width: 100%;
+    min-height:200px;
+    height: auto;
+}
+
   
-  
-/* Product - Make the image fully responsive */
+/* Product Price */
 .price::before{
   content:"$";
   color: grey;
@@ -47,4 +47,10 @@
   
 #contactbutton:hover, a:hover {
   opacity: 0.7;
+}
+
+
+/* Product Details*/
+.container-fluid{
+  margin-top: 100px;
 }
