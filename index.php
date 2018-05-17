@@ -1,5 +1,6 @@
 <?php
 include('autoloader.php');
+session_start();
 
 $products_obj = new Products();
 $products = $products_obj -> getProducts();

@@ -43,13 +43,35 @@ $navigation = $nav_obj -> getNavigationItems();
     </form>
     
     <!--Signup & Signin icon -->
-    <ul class="navbar-nav justify-content-end">
-      <li class="nav-item">
-        <a class="nav-link" href="register.php"><i class="fas fa-user-plus"></i> Sign Up</a>
+    <!--<ul class="navbar-nav justify-content-end">-->
+    <!--  <li class="nav-item">-->
+    <!--    <a class="nav-link" href="register.php"><i class="fas fa-user-plus"></i> Sign Up</a>-->
+    <!--  </li>-->
+    <!--  <li class="nav-item">-->
+    <!--    <a class="nav-link" href="login.php"><i class="fas fa-sign-in-alt"></i> Sign in</a>-->
+    <!--  </li>-->
+    <!--</ul>-->
+    
+    <?php
+    if( $_SESSION["username"] ){
+      $user = $_SESSION["username"];
+      echo "<span class=\"navbar-text\"> Hello, $user!</span>";
+      echo "<ul class=\"navbar-nav justify-content-end\">
+            <li class=\"nav-item\">
+              <a class=\"nav-link\" href=\"signout.php\"><i class=\"fas fa-sign-out-alt\"></i> Sign Out</a>
+            </li>
+            </ul>";
+    }
+    else{
+      echo "<ul class=\"navbar-nav justify-content-end\">
+      <li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"register.php\"><i class=\"fas fa-user-plus\"></i> Sign Up</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login.php"><i class="fas fa-sign-in-alt"></i> Sign in</a>
+      <li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"login.php\"><i class=\"fas fa-sign-in-alt\"></i> Sign in</a>
       </li>
-    </ul>
+      </ul>";
+    }
+    ?>
   </div>
 </nav>
