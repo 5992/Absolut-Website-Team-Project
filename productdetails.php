@@ -17,6 +17,7 @@ else{
   echo "You will be redirected to the home page after 5 seconds";
   header( "location:index.php" );
 }
+
 $page_title = $product_name;
 ?>
 <!doctype html>
@@ -26,7 +27,7 @@ $page_title = $product_name;
     <?php include('includes/navbar.php'); ?>
     <div class="container-fluid content">
       <?php
-      //include('includes/breadcrumb.php');
+      include('includes/breadcrumb.php');
       ?>
       <div class="row mt-4">
         <div class="col-sm-5">
