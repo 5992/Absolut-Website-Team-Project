@@ -10,7 +10,9 @@
     min-height:200px;
     height: auto;
 }
-  
+.form-inline {
+  padding-right: 5px;
+}
 /* Product Price */
 .price::before{
   content:"$";

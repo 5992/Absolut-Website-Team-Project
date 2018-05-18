@@ -27,35 +27,22 @@ $navigation = $nav_obj -> getNavigationItems();
                   <a class=\"nav-link\" href=\"/$link\">$name <span class=\"sr-only\">(current)</span></a>
                 </li>";
         }
-        //temporary link to database only during development
-        echo "<li class=\"nav-item\">
-          <a class=\"nav-link\" href=\"/phpmyadmin/\" target=\"_blank\">Database</a>
-        </li>";
+        
         }
       ?>
     </ul>
     
      
     <!-- Search -->
-    <form class="form-inline my-2 my-lg-0" method="get" action="search.php">
+    <form class="form-inline my-2 my-lg-0" method="get" action="search.php" style="padding-right: 5px;">
       <input class="form-control mr-sm-2" type="search" name="keywords" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
     
-    <!--Signup & Signin icon -->
-    <!--<ul class="navbar-nav justify-content-end">-->
-    <!--  <li class="nav-item">-->
-    <!--    <a class="nav-link" href="register.php"><i class="fas fa-user-plus"></i> Sign Up</a>-->
-    <!--  </li>-->
-    <!--  <li class="nav-item">-->
-    <!--    <a class="nav-link" href="login.php"><i class="fas fa-sign-in-alt"></i> Sign in</a>-->
-    <!--  </li>-->
-    <!--</ul>-->
-    
     <?php
     if( $_SESSION["username"] ){
       $user = $_SESSION["username"];
-      echo "<span class=\"navbar-text\"> Hello, $user!</span>";
+      echo "<span class=\"navbar-text\">Hello, $user!</span>";
       echo "<ul class=\"navbar-nav justify-content-end\">
             <li class=\"nav-item\">
               <a class=\"nav-link\" href=\"signout.php\"><i class=\"fas fa-sign-out-alt\"></i> Sign Out</a>
