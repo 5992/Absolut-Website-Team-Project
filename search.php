@@ -59,5 +59,6 @@ $page_title = $search_words;
       
       ?>
     </div>
+      <?php include("includes/footer.php"); ?>
   </body>
 </html>

@@ -20,15 +20,15 @@ $page_title = "Products List";
       
       <div class="container">
         <!-- Project Section -->
-      <div class="w3-container w3-padding-32" id="projects">
+      <div class="w3-container w3-padding-8" id="projects">
         <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Products</h3>
       </div>
        <?php
           echo "<div class=\"row\">
-                <div class=\"col navbar\">
-                  <p class=\"navbar-text\">Total of $total_items products</p>
-                </div>
-              </div>";
+                  <div class=\"col navbar\">
+                    <p class=\"navbar-text\">Total of $total_items products</p>
+                  </div>
+                </div>";
           if ( count($products) > 0 ) {
             $col_counter = 0;
             foreach( $products as $product ){

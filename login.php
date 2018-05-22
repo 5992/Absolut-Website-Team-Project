@@ -54,7 +54,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" ){
               <div class="invalid-feedback">Please type a valid password</div>
             </div>
             <div class="text-center">
-              <button type="submit" name="login" class="btn btn-outline-primary btn-block">Log in</button>
+              <button type="submit" name="login" class="btn btn-outline-success btn-block">Log in</button>
             </div>
             <p class="my-4">Don't have an account? <a href="register.php">Register</a> for a free account</p>
           </form>
@@ -62,6 +62,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" ){
       </div>
     </div>
     <!--<script src="/js/login.js"></script>-->
+    <?php include("includes/footer.php"); ?>
   </body>
 </html>
 

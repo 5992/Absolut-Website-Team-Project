@@ -20,9 +20,9 @@ $page_title = "Home page";
       
       <div class="container">
         <!-- Project Section -->
-      <div class="w3-container w3-padding-32" id="projects">
-        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Products</h3>
-      </div>
+        <div class="w3-container w3-padding-8" id="projects">
+          <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Products</h3>
+        </div>
         <?php
           echo "<div class=\"row\">
                 <div class=\"col navbar\">
@@ -58,8 +58,10 @@ $page_title = "Home page";
             }
           }
         ?>
+        
       </div>
+      <?php include("includes/footer.php"); ?>
     </body>
-    <?php include("includes/footer.php"); ?>
+    
 </html>
 

@@ -93,5 +93,6 @@ $page_title = $product_name;
         </div>
       </div>
     </div>
+    <?php include("includes/footer.php"); ?>
   </body>
 </html>
