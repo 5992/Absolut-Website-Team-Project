@@ -10,13 +10,11 @@
     min-height:200px;
     height: auto;
 }
-.form-inline {
-  padding-right: 5px;
-}
+
 /* Product Price */
 .price::before{
   content:"$";
-  color: grey;
+  color: green;
   font-size: 18px;
 }
 
@@ -35,9 +33,10 @@
   color: black;
   }
 .price{
-  color: grey;
+  color: green;
   font-size: 18px;
 }
+
 #contactbutton {
   border: none;
   outline: 0;
@@ -56,7 +55,7 @@
 }
 
 
-/* Product Details */
+/* Product Details   //style=\"width: 50%; height: 50%;\"  */
 .container-fluid{
   margin-top: 100px;
 }
@@ -65,3 +64,4 @@
 .container.content {
   margin-top: 100px;
 }
+

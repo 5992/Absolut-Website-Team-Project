@@ -40,8 +40,8 @@ $page_title = $product_name;
               echo "<img class=\"img-fluid\" src=\"/images/products/$image\">";
             }
             else{
-              //output carousel
-              echo" <div id=\"product-detail-carousel\" class=\"carousel slide\" data-ride=\"carousel\">
+              //output carousel // id=\"product-detail-carousel\" class=\"carousel slide\" data-ride=\"carousel\">
+              echo" <div class=\"detailImage\">
                 <ol class=\"carousel-indicators image-indicators\">";
                   $indicator_counter = 0;
                   foreach( $product as $indicator){
@@ -52,10 +52,10 @@ $page_title = $product_name;
                     else{
                       unset( $class );
                     }
-                    echo "<li data-target=\"#product-detail-carousel\" data-slide-to=\"$indicator_counter\" class=\"$class\">
-                      <img src=\"/images/products/$indicator_image\" class=\"img-fluid\">
-                    </li>";
-                    $indicator_counter++;
+                    // echo "<li data-target=\"#product-detail-carousel\" data-slide-to=\"$indicator_counter\" class=\"$class\">
+                    //         <img src=\"/images/products/$indicator_image\" class=\"img-fluid\">
+                    //       </li>";
+                    // $indicator_counter++;
                   }
                 echo "</ol>";
                 echo "<div class=\"carousel-inner\">";
@@ -69,9 +69,9 @@ $page_title = $product_name;
                     else{
                       unset( $class );
                     }
-                    echo "<div class=\"carousel-item $class\">
-                      <img class=\"d-block w-100\" src=\"/images/products/$image\" alt=\"$name\">
-                    </div>";
+                    echo "<div class=\"carousel-item $class\" style=\"text-align: center;\">
+                            <img class=\"center\" src=\"/images/products/$image\" alt=\"$name\" style=\"width:50%; margin-top: 0px;\"> 
+                        </div>";
                     $image_counter++;
                   }
                 echo "</div>";

@@ -6,7 +6,7 @@ $products_obj = new Products();
 $products = $products_obj -> getProducts();
 $total_items = $products_obj -> total_products;
 
-$page_title = "Home page";
+$page_title = "Products List";
 ?>
 <!doctype html>
 <html>
@@ -16,14 +16,14 @@ $page_title = "Home page";
   </head>
     <body>
       <?php include("includes/navbar.php"); ?>
-      <?php include("includes/banner.php"); ?>
+      
       
       <div class="container">
         <!-- Project Section -->
       <div class="w3-container w3-padding-32" id="projects">
         <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Products</h3>
       </div>
-        <?php
+       <?php
           echo "<div class=\"row\">
                 <div class=\"col navbar\">
                   <p class=\"navbar-text\">Total of $total_items products</p>
@@ -62,4 +62,3 @@ $page_title = "Home page";
     </body>
     <?php include("includes/footer.php"); ?>
 </html>
-

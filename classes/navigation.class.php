@@ -1,6 +1,9 @@
 <?php
 class Navigation{
   private $nav_items = array();
+  //right items
+  private $nav_right_items = array();
+  
   public $current_page;
   private $json;
   public function __construct($json = false){
@@ -20,7 +23,18 @@ class Navigation{
       "About" => "about.php",
       "Products" => "productlist.php"
       );
+      
+      
+      
+      //right items
+      $this -> nav_right_items = array(
+      "Sign Up" => "register.php",
+      "Sign In" => "login.php"
+      );
     }
+    
+    
+    
   }
   protected function getCurrentpage(){
     //get the name of the current page
@@ -45,6 +59,17 @@ class Navigation{
     }
     else{
       return $this -> nav_items;
+    }
+  }
+  
+  
+  //right items
+  public function getNavigationRightItems(){
+    if($this -> json == true ){
+      return json_encode( $this -> nav_right_items );
+    }
+    else{
+      return $this -> nav_right_items;
     }
   }
 }

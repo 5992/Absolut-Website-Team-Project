@@ -1,6 +1,9 @@
 <?php
 $nav_obj = new Navigation();
 $navigation = $nav_obj -> getNavigationItems();
+
+//right item
+$right_navigation = $nav_obj -> getNavigationRightItems();
 ?>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
@@ -12,22 +15,21 @@ $navigation = $nav_obj -> getNavigationItems();
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <?php
-      if( count($navigation) > 0 ){
-        
-        foreach( $navigation as $name => $link ){
-          //if the link matches the current page, set active as 'active'
-          if( $link == $nav_obj -> current_page ){
-            $active = "active";
-          }
-          else{
-            unset($active);
-          }
+        if( count($navigation) > 0 ){
           
-          echo "<li class=\"nav-item $active\">
-                  <a class=\"nav-link\" href=\"/$link\">$name <span class=\"sr-only\">(current)</span></a>
-                </li>";
-        }
-        
+          foreach( $navigation as $name => $link ){
+            //if the link matches the current page, set active as 'active'
+            if( $link == $nav_obj -> current_page ){
+              $active = "active";
+            }
+            else{
+              unset($active);
+            }
+            
+            echo "<li class=\"nav-item $active\">
+                    <a class=\"nav-link\" href=\"/$link\">$name <span class=\"sr-only\">(current)</span></a>
+                  </li>";
+          }
         }
       ?>
     </ul>
@@ -39,6 +41,8 @@ $navigation = $nav_obj -> getNavigationItems();
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
     
+    
+    <!-- SignUp SignIn -->
     <?php
     if( $_SESSION["username"] ){
       $user = $_SESSION["username"];
@@ -50,14 +54,33 @@ $navigation = $nav_obj -> getNavigationItems();
             </ul>";
     }
     else{
-      echo "<ul class=\"navbar-nav justify-content-end\">
-      <li class=\"nav-item\">
-        <a class=\"nav-link\" href=\"register.php\"><i class=\"fas fa-user-plus\"></i> Sign Up</a>
-      </li>
-      <li class=\"nav-item\">
-        <a class=\"nav-link\" href=\"login.php\"><i class=\"fas fa-sign-in-alt\"></i> Sign in</a>
-      </li>
-      </ul>";
+      if( count($right_navigation) > 0 ){
+          
+          foreach( $right_navigation as $name => $link ){
+            //if the link matches the current page, set active as 'active'
+            if( $link == $nav_obj -> current_page ){
+              $active = "active";
+            }
+            else{
+              unset($active);
+            }
+            
+            if($name == "Sign Up")
+            {
+              echo "<ul class=\"navbar-nav justify-content-end\">
+                  <li class=\"nav-item $active\">
+                    <a class=\"nav-link\" href=\"/$link\"><i class=\"fas fa-user-plus\"></i> $name <span class=\"sr-only\">(current)</span></a>
+                  </li>";
+              
+            }
+            else {
+              echo "<ul class=\"navbar-nav justify-content-end\">
+                  <li class=\"nav-item $active\">
+                    <a class=\"nav-link\" href=\"/$link\"><i class=\"fas fa-sign-in-alt\"></i> $name <span class=\"sr-only\">(current)</span></a>
+                  </li>";
+            }
+          }
+        }
     }
     ?>
   </div>

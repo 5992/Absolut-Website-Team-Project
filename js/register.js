@@ -56,8 +56,8 @@ $(document).ready(
       let registerdata = { username: username, email: email, password: password };
       console.log(registerdata);
       //add spinner to button
-      let spinner = '<img class="spinner" src="/images/graphics/spinner1.gif">';
-      $('button[name="register-btn"]').append(spinner);
+      //let spinner = '<img class="spinner" src="/images/graphics/spinner1.gif">';
+      //$('button[name="register-btn"]'));//.append(spinner);
       $('button[name="register-btn"]').attr('disabled', '');
       $.ajax({
           url: '/ajax/register.ajax.php',
@@ -67,7 +67,7 @@ $(document).ready(
         })
         .done((response) => {
           //remove spinner from button
-          $('button[name="register-btn"] img').remove();
+          //$('button[name="register-btn"] img').remove();
           // remove all alerts
           removeAlerts();
           if (response.success == false) {

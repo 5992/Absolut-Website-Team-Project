@@ -63,19 +63,19 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST'){
             <div class="form-group">
               <label for="username">Username</label>
               <input id="username" class="form-control" type="text" name="username" placeholder="Username" required>
-              <div class="invalid-feedback">Please enter a valid username</div>
+              <div class="invalid-feedback">Please enter a valid username which has at least 4 characters</div>
               <div class="alert-username"></div>
             </div>
             <div class="form-group">
               <label for="email">Email address</label>
               <input id="email" class="form-control" type="email" name="email" placeholder="Email" required>
-              <div class="invalid-feedback">Please enter a valid email</div>
+              <div class="invalid-feedback">Please enter a valid email: sample@domain.com</div>
               <div class="alert-email"></div>
             </div>
             <div class="form-group">
               <label for="password">Password</label>
               <input id="password" class="form-control" type="password" name="password" placeholder="Minimum 8 characters" required>
-              <div class="invalid-feedback">Please enter a valid password</div>
+              <div class="invalid-feedback">Please enter a valid password which has at least 8 characters</div>
               <div class="alert-password"></div>
             </div>
             <div class="text-center">
