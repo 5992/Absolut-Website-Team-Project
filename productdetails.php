@@ -103,10 +103,12 @@ $page_title = $product_name;
               </div>
               <div class="col-12 col-md-7">
                 <button class="btn btn-outline-primary" type="submit" name="submit" value="shoppingcart">
+                  <img class="icon d-inline-block" src="images/icons/shoppingcart.png">
                   Add to cart
                 </button>
                 <button class="btn btn-outline-primary" type="submit" name="submit" value="wishlist">
-                  Add to Wishlist
+                  <img class="icon d-inline-block" src="images/icons/wishlist.png">
+                  Wishlist
                 </button>
               </div>
             </div>
@@ -118,9 +120,9 @@ $page_title = $product_name;
         </div>
       </div>
     </div>
-    <?php include("includes/footer.php"); ?>
+    
     <script src = "js/product-detail.js"></script>
     <script src = "js/shopping-cart,js"></script>
-    
+    <?php include("includes/footer.php"); ?>
   </body>
 </html>

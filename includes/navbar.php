@@ -83,5 +83,23 @@ $right_navigation = $nav_obj -> getNavigationRightItems();
         }
     }
     ?>
+    
+    
   </div>
+<div class="cart-group d-flex align-self-center order-8 order-md-9">
+    <?php
+    $cart = new ShoppingCart();
+    $cart_count = $cart -> getCartCount();
+    ?>
+    <a href="shoppingcart.php" class="nav-icon cart mx-1">
+      <img class="icon" src="images/icons/bag.png">
+      <span id="cart-count" class="badge badge-primary"><?php echo $cart_count; ?></span>
+    </a>
+    <span class="nav-icon wish mx-1">
+      <img class="icon" src="images/icons/wishbag.png">
+      <span id="wish-count" class="badge badge-primary">2</span>
+    </span>
+  </div>
+
+  
 </nav>

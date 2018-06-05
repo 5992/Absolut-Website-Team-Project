@@ -49,5 +49,15 @@ if( $_SERVER["REQUEST_METHOD"] == "POST"){
   }
   $response["errors"] = $errors;
   echo json_encode($response);
+  
+   if( $action == 'update' ){
+    $product_id = $_POST["productId"];
+    $quantity = $_POST["quantity"];
+  }
+  
+  if( count($errors) > 0 ){
+    $response["errors"] = $errors;
+  }
+  echo json_encode($response);
 }
 ?>
