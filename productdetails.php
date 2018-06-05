@@ -24,7 +24,7 @@ $page_title = $product_name;
 <html>
   <?php include ('includes/head.php'); ?>
   <body>
-    <?php include('includes/navbar.php'); ?>
+    <?php include('includes/navbar.php'); ?> 
     <div class="container-fluid content">
       <?php
       include('includes/breadcrumb.php');
@@ -87,6 +87,31 @@ $page_title = $product_name;
           <p class="price">
             <?php echo $product_price; ?>
           </p>
+           <!--form for shopping cart and wishlist-->
+          <form id="shopping-form" class="my-2 form-inline">
+            <div class="form-row">
+              <div class="col-8 col-md-3 input-group">
+                <div class="input-group product-quantity my-2 my-md-0">
+                  <div class="input-group-prepend">
+                    <button class="btn btn-outline-primary" data-function="subtract" type="button">&minus;</button>
+                  </div>
+                  <input type="number" name="quantity" value="1" min="1" class="form-control border-primary ">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-primary" data-function="add" type="button">&plus;</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-7">
+                <button class="btn btn-outline-primary" type="submit" name="submit" value="shoppingcart">
+                  Add to cart
+                </button>
+                <button class="btn btn-outline-primary" type="submit" name="submit" value="wishlist">
+                  Add to Wishlist
+                </button>
+              </div>
+            </div>
+          </form>
+          <!--end shopping form-->
           <p class="description">
             <?php echo $product_description; ?>
           </p>
@@ -94,5 +119,8 @@ $page_title = $product_name;
       </div>
     </div>
     <?php include("includes/footer.php"); ?>
+    <script src = "js/product-detail.js"></script>
+    <script src = "js/shopping-cart,js"></script>
+    
   </body>
 </html>
