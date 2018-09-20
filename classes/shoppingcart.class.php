@@ -31,7 +31,7 @@ class ShoppingCart extends Database{
   
   public function addItem($product_id, $quantity){
     //if user is not logged in, return false
-    if( !$this -> auth_state ){
+    if( $this -> auth_state == false ){
       $this -> errors["auth"] = "user is not logged in";
       return false;
     }
@@ -70,6 +70,7 @@ class ShoppingCart extends Database{
       }
       $this -> cart_count = $this -> getCartCount();
     }
+    
   }
   
   public function removeItem($product_id){
@@ -157,7 +158,7 @@ class ShoppingCart extends Database{
       ON products.id = products_images.product_id 
       INNER JOIN images
       ON products_images.image_id = images.image_id 
-      WHERE shopping_cart_items.cart_id = ? ";
+      WHERE shopping_cart_items.cart_id = ? GROUP BY product_id";
       $statement = $this -> connection -> prepare( $query );
       $statement -> bind_param( "i" , $this -> cart_id );
       if( $statement -> execute() ){
@@ -165,12 +166,20 @@ class ShoppingCart extends Database{
         //get the result
         $result = $statement -> get_result();
         if( $result -> num_rows > 0){
+          //store total price of cart items
+          $total_price = 0;
           while( $row = $result -> fetch_assoc() ){
+            //add price x quantity to total price
+            $total_price += ( $row['price'] * $row['quantity'] );
             //add row to cart_items array
             array_push( $cart_items , $row );
           }
+          //add total price to cart_items array
+          $this -> cart_items['total'] = $total_price;
           //store cart items in $this -> cart_items
-          $this -> cart_items = $cart_items;
+          $this -> cart_items['items'] = $cart_items;
+          //add cart_id to the cart result
+          $this -> cart_items['cart_id'] = $this -> cart_id;
           return true;
         }
         else{

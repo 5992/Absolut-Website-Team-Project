@@ -16,48 +16,73 @@ if( $_SERVER["REQUEST_METHOD"] == "POST"){
   //if the request was to add an item to the cart
   if( $action == "add" ){
     //add item to cart
-    $product_id = $_POST["product_id"];
+    $product_id = $_POST["productId"];
     $quantity = $_POST["quantity"];
-    if( $cart -> addItem( $product_id , $quantity ) ){
+    if( $cart -> addItem( $product_id , $quantity) ){
       //success
       $response["success"] = true;
     }
     else{
       //failed
       $response["success"] = false;
+      $errors = $cart -> errors;
       //if error is caused by the user not being logged in
       //response should contain redirect page, product id and quantity
-      if( $cart -> errors['auth'] ){
+      if( isset($cart -> errors['auth']) ){
+        $errors['auth'] = 'not authorized';
         $response["redirect"] = "login.php";
         //add item and quantity to response
         $response["product_id"] = $product_id;
         $response["quantity"] = $quantity;
       }
     }
+    $response["cart_count"] = $cart -> getCartCount();
   }
-  if( $action = "list" ){
-    $cart_list = $cart -> list();
+  //if the command is to list the shopping cart
+  if( $action == "list" ){
+    $cart_list = $cart -> listCart();
     if( $cart_list ){
       $response["success"] = true; 
-      $response["items"] = $cart -> cart_items;
+      $response["items"] = $cart -> cart_items['items'];
+      $response['total'] = $cart -> cart_items['total'];
+      $response['cart_id'] = $cart -> cart_items['cart_id'];
     }
     else{
       $response["success"] = false;
       $response["redirect"] = "login.php";
-      $response["origin"] = "shopping_cart.php";
+      $response["origin"] = "shoppingcart.php";
     }
+    $errors = $cart -> errors;
   }
-  $response["errors"] = $errors;
-  echo json_encode($response);
-  
-   if( $action == 'update' ){
+  //if the command is to update an item in the shopping cart
+  if( $action == 'update' ){
     $product_id = $_POST["productId"];
     $quantity = $_POST["quantity"];
+    $update = $cart -> updateItem($product_id,$quantity);
+    if( $update == true ){
+      $response['success'] = true;
+    }
+    else{
+      $response['success'] = false;
+    }
+    $errors = $cart -> errors;
   }
-  
+  if( $action == 'delete' ){
+    $product_id = $_POST["productId"];
+    $delete = $cart -> removeItem($product_id);
+    if($delete == true ){
+      $response["success"] = true;
+    }
+    else{
+      $response["success"] = false;
+    }
+    $errors = $cart -> errors;
+  }
+  //if there are errors, add it to the response
   if( count($errors) > 0 ){
     $response["errors"] = $errors;
   }
+  //output the response as json
   echo json_encode($response);
 }
 ?>

@@ -19,7 +19,7 @@ $(document).ready(
     $('#shopping-form').click(
       (event) => {
         //add spinner to the button
-        let spinner = '<img class="icon spinner" src="/images/graphics/icons/moc-spin-circle.png">';
+        const spinner = '<img class="icon spinner" src="/images/graphics/icons/moc-spin-circle.png">';
         //get the value of the target button either 'shoppingcart' or 'wishlist'
         let tgtVal = $(event.target).val();
         if( tgtVal == 'shoppingcart'){
@@ -31,6 +31,7 @@ $(document).ready(
           const productId = $('input[name="product_id"]').val();
           
           const cartData = { quantity: qty, productId : productId, action: 'add' };
+          
           //send cardData via ajax request\
           $.ajax({
             url: '/ajax/shoppingcart.ajax.php',

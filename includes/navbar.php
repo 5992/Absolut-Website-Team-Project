@@ -1,7 +1,6 @@
 <?php
 $nav_obj = new Navigation();
 $navigation = $nav_obj -> getNavigationItems();
-
 //right item
 $right_navigation = $nav_obj -> getNavigationRightItems();
 ?>
@@ -97,7 +96,7 @@ $right_navigation = $nav_obj -> getNavigationRightItems();
     </a>
     <span class="nav-icon wish mx-1">
       <img class="icon" src="images/icons/wishbag.png">
-      <span id="wish-count" class="badge badge-primary">2</span>
+      <span id="wish-count" class="badge badge-primary">0</span>
     </span>
   </div>
 

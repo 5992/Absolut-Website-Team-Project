@@ -10,12 +10,10 @@ $page_title = "Home page";
 <html>
   <head>
     <?php include("includes/head.php"); ?>
-
   </head>
     <body>
       <?php include("includes/navbar.php"); ?>
       <?php include("includes/banner.php"); ?>
-      
       <div class="container">
         <!-- Project Section -->
         <div class="w3-container w3-padding-8" id="projects">
@@ -62,3 +60,5 @@ $page_title = "Home page";
     </body>
     
 </html>
+
+

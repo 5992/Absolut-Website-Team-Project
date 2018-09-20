@@ -86,7 +86,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST'){
         </div>
       </div>
     </div>
-    <script src="/js/register.js"></script>
+    <!--<script src="/js/register.js"></script>-->
     <?php include("includes/footer.php"); ?>
   </body>
 </html>

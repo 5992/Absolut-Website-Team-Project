@@ -18,7 +18,7 @@ class ProductDetail extends Products{
     WHERE products.id = ?';
     $this -> getProduct( $product_id );
   }
-  private function getProduct($product_id){
+  public function getProduct($product_id){
     $statement = $this -> connection -> prepare( $this -> query );
     $statement -> bind_param( 'i', $product_id );
     $statement -> execute();

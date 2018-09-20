@@ -7,8 +7,8 @@ if( isset($_GET["product_id"]) ){
   $product_id = $_GET["product_id"];
   
   $product_detail = new ProductDetail( $product_id );
-  $product = $product_detail -> product;
-  
+  $product = $product_detail -> product;  
+  $product_id = $product[0]["id"];
   $product_name = $product[0]["name"];
   $product_price = $product[0]["price"];
   $product_description = $product[0]["description"];
@@ -52,10 +52,10 @@ $page_title = $product_name;
                     else{
                       unset( $class );
                     }
-                    // echo "<li data-target=\"#product-detail-carousel\" data-slide-to=\"$indicator_counter\" class=\"$class\">
-                    //         <img src=\"/images/products/$indicator_image\" class=\"img-fluid\">
-                    //       </li>";
-                    // $indicator_counter++;
+                    echo "<li data-target=\"#product-detail-carousel\" data-slide-to=\"$indicator_counter\" class=\"$class\">
+                            <img src=\"/images/products/$indicator_image\" class=\"img-fluid\">
+                          </li>";
+                    $indicator_counter++;
                   }
                 echo "</ol>";
                 echo "<div class=\"carousel-inner\">";
@@ -89,19 +89,20 @@ $page_title = $product_name;
           </p>
            <!--form for shopping cart and wishlist-->
           <form id="shopping-form" class="my-2 form-inline">
-            <div class="form-row">
+            <div class="form-row w-100">
               <div class="col-8 col-md-3 input-group">
                 <div class="input-group product-quantity my-2 my-md-0">
                   <div class="input-group-prepend">
                     <button class="btn btn-outline-primary" data-function="subtract" type="button">&minus;</button>
                   </div>
-                  <input type="number" name="quantity" value="1" min="1" class="form-control border-primary ">
+                  <input type="text" name="quantity" value="1" min="1" class="form-control border-primary text-center flex-fill">
                   <div class="input-group-append">
                     <button class="btn btn-outline-primary" data-function="add" type="button">&plus;</button>
                   </div>
                 </div>
               </div>
               <div class="col-12 col-md-7">
+                <input name="product_id" type="hidden" value="<?php echo $product_id; ?>">
                 <button class="btn btn-outline-primary" type="submit" name="submit" value="shoppingcart">
                   <img class="icon d-inline-block" src="images/icons/shoppingcart.png">
                   Add to cart
@@ -121,8 +122,9 @@ $page_title = $product_name;
       </div>
     </div>
     
-    <script src = "js/product-detail.js"></script>
-    <script src = "js/shopping-cart,js"></script>
-    <?php include("includes/footer.php"); ?>
+    <script src = "js/product-details.js"></script>
+    <script src = "js/shopping-cart.js"></script>
+    
   </body>
 </html>
+
